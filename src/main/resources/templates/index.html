@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+   
+   <!-- Datatable CSS -->
+ <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"/>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -18,19 +25,22 @@
      
      <div class="container">
        <a th:href="@{/addnew}" class="btn btn-primary btn-sm mb-3 mt-4">Add Customer</a>
-    <table class="table table-striped table-responsive-md">
+    <table id="myTable" class="table table-striped table-responsive-md" >
+		   <thead class="table-dark">
 		<tr>
-			<thead>
+			    <th>ID</th>
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Email</th>
 				<th>Phone Number</th>
 				<th>Gender</th>
 				<th>Actions</th>
-			</thead>
+			
 		</tr>
+		</thead>
 		<tbody>
 			<tr th:each="customer:${allcustlist}">
+				<td th:text="${customer.id}"></td>
 				<td th:text="${customer.firstName}"></td>
 				<td th:text="${customer.lastName}"></td>
 				<td th:text="${customer.email}"></td>
@@ -43,5 +53,17 @@
 		</tbody>
 	</table>
 	</div>
+<!-- jQuery Library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<!-- Datatable JS -->
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+<script>
+	$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
+
 </body>
 </html>
