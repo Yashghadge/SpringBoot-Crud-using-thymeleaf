@@ -61,7 +61,7 @@
       
                         <div class="form-outline">
 							 <label class="form-label" for="phoneNumber">Phone Number</label>
-                          <input type="tel" id="phoneNumber" th:field="*{phone}" class="form-control form-control-lg" />
+                          <input type="tel" id="phone" th:field="*{phone}" class="form-control form-control-lg" />
                          
                         </div>
       
@@ -139,7 +139,7 @@
             maxlength: 60,
             email: true,
           },
-          phoneNumber: {
+          phone: {
             required: true,
           },
           gender:{
@@ -163,7 +163,7 @@
             email: "It does not seem to be a valid email.",
             maxlength: "The email should be or equal to 60 chars.",
           },
-          phoneNumber: {
+          phone: {
             required: "phone number is required.",
           },
           gender: {

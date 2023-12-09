@@ -14,7 +14,7 @@ import lombok.Data;
 @Entity
 public class Customer {
    @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
    private int id;
 
    @Column
@@ -26,7 +26,7 @@ public class Customer {
    private String email;
   
    @Column
-   private long phone;
+   private String phone;
 
    @Column
    private String password;
